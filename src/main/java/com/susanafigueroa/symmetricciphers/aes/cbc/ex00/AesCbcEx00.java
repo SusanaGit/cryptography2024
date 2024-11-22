@@ -7,6 +7,7 @@ Modo CBC (Cipher Block Chaining)
 Encripta la frase: "Hola que tal" y desencríptala
  */
 
+import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -29,6 +30,10 @@ public class AesCbcEx00 {
 
         // encapsulo la key para que el objeto Cipher la pueda usar
         SecretKeySpec secretKeySpec = new SecretKeySpec(key, ALGORITHM);
+
+        // configuro el objeto Cipher y lo inicializo
+        Cipher cipher = Cipher.getInstance(CIPHER);
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, iv);
 
         return textEncoded;
     }
