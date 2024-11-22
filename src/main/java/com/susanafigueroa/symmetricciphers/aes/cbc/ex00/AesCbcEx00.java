@@ -32,8 +32,12 @@ public class AesCbcEx00 {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key, ALGORITHM);
 
         // configuro el objeto Cipher y lo inicializo
-        Cipher cipher = Cipher.getInstance(CIPHER);
-        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, iv);
+        Cipher cipherEncrypt = Cipher.getInstance(CIPHER);
+        cipherEncrypt.init(Cipher.ENCRYPT_MODE, secretKeySpec, iv);
+
+        // convierto el texto plano valueToEncode a bytes -> valueToEncode.getBytes("UTF-8")
+        // cifro los bytes mediante el cipherEncrypt que configuré antes -> cipherEncrypt.doFinal
+        byte[] encrypted = cipherEncrypt.doFinal(valueToEncode.getBytes("UTF-8"));
 
         return textEncoded;
     }
