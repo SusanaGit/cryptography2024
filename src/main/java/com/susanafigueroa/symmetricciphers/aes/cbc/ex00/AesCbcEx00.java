@@ -10,6 +10,7 @@ Encripta la frase: "Hola que tal" y desencríptala
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
 
 public class AesCbcEx00 {
 
@@ -23,7 +24,6 @@ public class AesCbcEx00 {
     private static final String valueToEncode = "Hola que tal";
 
     public static String encrypt(byte[] key, byte[] initVector, String valueToEncode) throws Exception {
-        String textEncoded = "";
 
         // objeto IvParameterSpec que encapsula el IV para que pueda usarse en el cifrado
         IvParameterSpec iv = new IvParameterSpec(initVector);
@@ -35,11 +35,14 @@ public class AesCbcEx00 {
         Cipher cipherEncrypt = Cipher.getInstance(CIPHER);
         cipherEncrypt.init(Cipher.ENCRYPT_MODE, secretKeySpec, iv);
 
-        // convierto el texto plano valueToEncode a bytes -> valueToEncode.getBytes("UTF-8")
+        // convierto el texto plano valueToEncode a bytes -> valueToEncode.getBytes("UTF-8") - el algoritmo solo entiende el valor en bytes
         // cifro los bytes mediante el cipherEncrypt que configuré antes -> cipherEncrypt.doFinal
         byte[] encrypted = cipherEncrypt.doFinal(valueToEncode.getBytes("UTF-8"));
 
-        return textEncoded;
+        // convierto el texto cifrado (en formato binario) a representación Base64
+        String encryptedBase64 = Base64.getEncoder().encodeToString(encrypted);
+
+        return encryptedBase64;
     }
 
 }
