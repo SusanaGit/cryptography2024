@@ -8,6 +8,7 @@ Encripta la frase: "Hola que tal" y desencríptala
  */
 
 import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 
 public class AesCbcEx00 {
 
@@ -26,6 +27,8 @@ public class AesCbcEx00 {
         // objeto IvParameterSpec que encapsula el IV para que pueda usarse en el cifrado
         IvParameterSpec iv = new IvParameterSpec(initVector);
 
+        // encapsulo la key para que el objeto Cipher la pueda usar
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key, ALGORITHM);
 
         return textEncoded;
     }
