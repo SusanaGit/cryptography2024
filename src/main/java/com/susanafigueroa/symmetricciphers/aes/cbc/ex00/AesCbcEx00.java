@@ -21,9 +21,7 @@ public class AesCbcEx00 {
     // PKCS5PADDING -> esquema que agrega relleno si el texto no es múltiplo de 16bytes
     private static final String CIPHER = "AES/CBC/PKCS5PADDING";
 
-    private static final String valueToEncode = "Hola que tal";
-
-    public static String encrypt(byte[] key, byte[] initVector, String valueToEncode) throws Exception {
+    public String encrypt(byte[] key, byte[] initVector, String valueToEncode) throws Exception {
 
         // objeto IvParameterSpec que encapsula el IV para que pueda usarse en el cifrado
         IvParameterSpec iv = new IvParameterSpec(initVector);
@@ -41,8 +39,8 @@ public class AesCbcEx00 {
 
         // convierto el texto cifrado (en formato binario) a representación Base64
         String encryptedBase64 = Base64.getEncoder().encodeToString(encrypted);
-
         return encryptedBase64;
+
     }
 
 }
