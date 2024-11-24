@@ -62,9 +62,9 @@ public class MainEscitala {
         int numberRows = enterNumberRows(keyboard);
 
         System.out.println("Write the message to decrypt: ");
-        String messageToDecrypt = "AACSNIICTCOAINLFLARAAEBS";
+        String messageToDecrypt = keyboard.nextLine();
 
-        System.out.println("Message decrypted: ");
+        escitala.decrypt(numberRows, messageToDecrypt);
 
     }
 
