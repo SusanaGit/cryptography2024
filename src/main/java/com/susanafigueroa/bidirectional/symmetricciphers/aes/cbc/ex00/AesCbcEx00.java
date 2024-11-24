@@ -1,4 +1,4 @@
-package com.susanafigueroa.symmetricciphers.aes.cbc.ex00;
+package com.susanafigueroa.bidirectional.symmetricciphers.aes.cbc.ex00;
 
 /*
 Algoritmo AES (Advanced Encryption Standard)

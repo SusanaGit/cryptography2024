@@ -1,4 +1,4 @@
-package com.susanafigueroa.escitala;
+package com.susanafigueroa.bidirectional.symmetricciphers.escitala;
 
 public class Escitala {
 
