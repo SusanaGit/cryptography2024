@@ -6,11 +6,12 @@ public class MainEscitala {
 
     public static void main(String[] args) {
 
-        menu();
+        MainEscitala main = new MainEscitala();
+        main.menu();
 
     }
 
-    public static void menu() {
+    public void menu() {
 
         Scanner keyboard = new Scanner(System.in);
 
@@ -45,29 +46,29 @@ public class MainEscitala {
         }
     }
 
-    public static void selectedX(Scanner keyboard, Escitala escitala){
+    public void selectedX(Scanner keyboard, Escitala escitala){
 
         int numberRows = enterNumberRows(keyboard);
 
         System.out.println("Write the message to encrypt: ");
         String messageToEncrypt = keyboard.nextLine();
 
-        System.out.println("Message encrypted: ");
+        escitala.encrypt(numberRows, messageToEncrypt);
 
     }
 
-    public static void selectedD(Scanner keyboard, Escitala escitala) {
+    public void selectedD(Scanner keyboard, Escitala escitala) {
 
         int numberRows = enterNumberRows(keyboard);
 
         System.out.println("Write the message to decrypt: ");
-        String messageToDecrypt = keyboard.nextLine();
+        String messageToDecrypt = "AACSNIICTCOAINLFLARAAEBS";
 
         System.out.println("Message decrypted: ");
 
     }
 
-    public static int enterNumberRows(Scanner keyboard) {
+    public int enterNumberRows(Scanner keyboard) {
         boolean isInteger = false;
         int numberRows = 0;
 
