@@ -4,39 +4,47 @@ package com.susanafigueroa.unidirectional.hashingplain;
 Calculate the hash of the pom.xml file using the SHA-256 algorithm.
  */
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashingPlain {
 
-    public static void main(String[] args) throws NoSuchAlgorithmException {
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         // create a MessageDigest object
         // we use MessageDigest because this class generates crypto hashes
+        // procesará los fragmentos de datos (en forma de bytes) que le proporcione
         MessageDigest md = MessageDigest.getInstance("SHA-256");
 
-        String baseUrl = System.getProperty("user.dir") + File.separator;
-
+        // path del archivo que del que quiero obtener el hash
+        String basePath = System.getProperty("user.dir") + File.separator;
         String nameFile = "pom.xml";
-
-        File file = new File(baseUrl + nameFile);
+        File file = new File(basePath + nameFile);
 
         if (file.exists()) {
             System.out.println("The file exists.");
 
-            InputStream in = HashingPlain.class.getResourceAsStream(baseUrl + nameFile);
+            // abro el archivo como un InputStream
+            InputStream in = new FileInputStream(file);
 
-            final byte[] bytes = new byte[1024];
+            // área temporal de almacenamiento de hasta 1024bytes
+            // usando un buffer puedo trabajar con bloques de datos en vez de procesar el archivo completp
+            final byte[] buffer = new byte[1024];
 
-            BufferedReader reader = new BufferedReader( new InputStreamReader(in));
-            StringBuilder content = new StringBuilder();
+            // bytesRead -> bytes leídos del archivo, si es + significa que ha rellenado el buffer y por tanto hay datos del archivo para leer
+            // bytesRead -> si es -1 indica que ya no hay datos del archivo para leer
+            // .read(buffer) -> intenta llenar el buffer con los datos del archivo, pero solo hasta 1024bytes del archivo
+            // las llamadas sucesivas a .read van devolviendo 1024 sucesivamente hasta que ya no quedan más datos del archivo para leer, y devuelve -1
+            int bytesRead = 0;
+            // hago llamadas sucesivas a read
+            // en cada iteración read llena el buffer con datos del archivo en bytes
+            while ((bytesRead = in.read(buffer)) != -1) {
+                // quiero que md procese los datos del buffer en cada iteración y se vaya actualizando
+                md.update(buffer, 0, bytesRead);
+            }
 
         } else {
             System.out.println("The file doesn't exist.");
         }
     }
-
 }
