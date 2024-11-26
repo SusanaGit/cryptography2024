@@ -32,6 +32,7 @@ public class HashingPlain {
             final byte[] bytes = new byte[1024];
 
             BufferedReader reader = new BufferedReader( new InputStreamReader(in));
+            StringBuilder content = new StringBuilder();
 
         } else {
             System.out.println("The file doesn't exist.");
