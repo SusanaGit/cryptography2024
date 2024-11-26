@@ -3,14 +3,12 @@ package com.susanafigueroa.unidirectional.hashingwithsalt;
 import com.susanafigueroa.Util;
 
 import javax.crypto.Mac;
-import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.InvalidKeyException;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
@@ -37,9 +35,11 @@ public class HashingSalt01 {
         // inicializo la instancia mac con la keySpec que contiene la salt y el algoritmo
         mac.init(keySpec);
 
+        byte[] bytesFile = Files.readAllBytes(Path.of(basePath + nameFile));
 
+        byte[] hash = mac.doFinal(bytesFile);
 
-
+        System.out.println("hash of the file with salt: " + Util.bytesToHex(hash));
 
     }
 
