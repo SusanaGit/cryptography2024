@@ -1,8 +1,8 @@
 package com.susanafigueroa.unidirectional.hashingwithsalt;
 
 /*
-genera un hash derivado del texto "Hello, how are you? :)" utilizando un proceso seguro (PBKDF2) y
-una sal (su@susanafigueroa.com) combinados con el algoritmo de hash SHA-256.
+Generate a hash derived from the text "Hello, how are you? :)" using a secure process (PBKDF2) and a salt
+(su@susanafigueroa.com) combined with the SHA-256 hash algorithm.
  */
 
 public class HashingSalt00 {
@@ -10,7 +10,7 @@ public class HashingSalt00 {
     public static void main(String[] args) {
 
         final String textToHash = "Hello, how are you? :)";
-
+        final String salt = "su@susanafigueroa.com";
 
 
     }
