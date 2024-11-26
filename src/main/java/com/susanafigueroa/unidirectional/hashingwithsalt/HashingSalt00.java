@@ -3,6 +3,8 @@ package com.susanafigueroa.unidirectional.hashingwithsalt;
 /*
 Generate a hash derived from the text "Hello, how are you? :)" using a secure process (PBKDF2) and a salt
 (su@susanafigueroa.com) combined with the SHA-256 hash algorithm.
+
+PBKDF2 is optimized to take a password (like plain text) and, with a salt, apply multiple iterations to derive a secure key.
  */
 
 import com.susanafigueroa.Util;
@@ -31,7 +33,7 @@ public class HashingSalt00 {
         // param -> lenght de la key PBEKeySpec SHA-256 -> normalmente una de estas 128 / 256 / 512
         PBEKeySpec keySpec = new PBEKeySpec(textToHash.toCharArray(), salt.getBytes(), 32, 512);
 
-        // obtengo instancia SecretKeyFactory para poder generar la clave cripto
+        // obtengo instancia SecretKeyFactory para poder generar la clave cripto (hash derivado, que tiene la password + salt)
         // convierte textos planos simples en keys seguras, que pueden ser procesadas por algoritmos (en este caso
         // por el PBKDF2WithHmacSHA256)
         SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
