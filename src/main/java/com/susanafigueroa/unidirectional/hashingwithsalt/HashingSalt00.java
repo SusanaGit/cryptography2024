@@ -5,14 +5,18 @@ Generate a hash derived from the text "Hello, how are you? :)" using a secure pr
 (su@susanafigueroa.com) combined with the SHA-256 hash algorithm.
  */
 
+import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
 
 public class HashingSalt00 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
 
         final String textToHash = "Hello, how are you? :)";
+
+        // se combina con el texto a cifrar para hacerlo único
         final String salt = "su@susanafigueroa.com";
 
         // configuro la keySpec
@@ -24,6 +28,10 @@ public class HashingSalt00 {
         // lenght de la key PBEKeySpec SHA-256 -> normalmente una de estas 128 / 256 / 512
         PBEKeySpec keySpec = new PBEKeySpec(textToHash.toCharArray(), salt.getBytes(), 32, 512);
 
+        // obtengo instancia SecretKeyFactory para poder generar la clave cripto
+        // convierte textos planos simples en keys seguras, que pueden ser procesadas por algoritmos (en este caso
+        // por el PBKDF2WithHmacSHA256)
+        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
 
 
     }
