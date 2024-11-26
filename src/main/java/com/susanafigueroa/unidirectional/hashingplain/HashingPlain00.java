@@ -8,7 +8,7 @@ import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class HashingPlain {
+public class HashingPlain00 {
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         // create a MessageDigest object
@@ -28,7 +28,7 @@ public class HashingPlain {
             InputStream in = new FileInputStream(file);
 
             // área temporal de almacenamiento de hasta 1024bytes
-            // usando un buffer puedo trabajar con bloques de datos en vez de procesar el archivo completp
+            // usando un buffer puedo trabajar con bloques de datos en vez de procesar el archivo completo
             final byte[] buffer = new byte[1024];
 
             // bytesRead -> bytes leídos del archivo, si es + significa que ha rellenado el buffer y por tanto hay datos del archivo para leer
@@ -42,6 +42,22 @@ public class HashingPlain {
                 // quiero que md procese los datos del buffer en cada iteración y se vaya actualizando
                 md.update(buffer, 0, bytesRead);
             }
+
+            // obtengo el hash en byte[]
+            final byte[] hashedBytes = md.digest();
+
+            // convierto a hexadecimal el array de bytes que contiene el hash
+            StringBuilder hashEx = new StringBuilder();
+            for (byte hashedByte : hashedBytes) {
+                System.out.println("byte: " + hashedByte);
+                int hashedInt = hashedByte & 0xFF;
+                String hashedString = Integer.toHexString(hashedInt);
+                System.out.println("hex: " + hashedString);
+                hashEx.append(hashedString);
+            }
+
+            System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<< HASH >>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println(hashEx);
 
         } else {
             System.out.println("The file doesn't exist.");
