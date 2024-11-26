@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9a0a29a-a6fd-497d-acd1-2505cf70ec65" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/susanafigueroa/unidirectional/hashingplain/HashingPlain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/susanafigueroa/unidirectional/hashingplan/HashingPlan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/susanafigueroa/unidirectional/hashingplain/HashingPlain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/susanafigueroa/unidirectional/hashingplain/HashingPlain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,25 +35,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MainAesCbcEx00.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainEscitala.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/shiun/Desktop/cryptography2024/src/main/java/com/susanafigueroa/bidirectional&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/shiun/Desktop/cryptography2024/src/main/java/org/example/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HashingPlain.executor": "Run",
+    "Application.MainAesCbcEx00.executor": "Run",
+    "Application.MainEscitala.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/shiun/Desktop/cryptography2024/src/main/java/com/susanafigueroa/bidirectional",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/shiun/Desktop/cryptography2024/src/main/java/org/example/Main.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\shiun\Desktop\cryptography2024\src\main\java\com\susanafigueroa\symmetricciphers\serpent" />
@@ -80,7 +80,7 @@
       <workItem from="1732353117273" duration="4857000" />
       <workItem from="1732401093756" duration="6463000" />
       <workItem from="1732444585409" duration="14849000" />
-      <workItem from="1732626812762" duration="63000" />
+      <workItem from="1732626812762" duration="519000" />
     </task>
     <servers />
   </component>
