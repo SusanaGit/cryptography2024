@@ -5,6 +5,7 @@ Calculate the hash of the pom.xml file using the SHA-256 algorithm.
  */
 
 import java.io.File;
+import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -23,6 +24,13 @@ public class HashingPlain {
 
         if (file.exists()) {
             System.out.println("The file exists.");
+
+            InputStream in = HashingPlain.class.getResourceAsStream(baseUrl + nameFile);
+
+            final byte[] bytes = new byte[1024];
+
+
+
         } else {
             System.out.println("The file doesn't exist.");
         }
